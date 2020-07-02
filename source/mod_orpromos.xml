@@ -7,13 +7,14 @@
 	<authorUrl>https://www.open-room.com</authorUrl>
 	<copyright>Copyright© 2019-2020</copyright>
 	<license>GNU/GPL</license>
-	<version>0.1.0</version>
-	<description>Con este módulo podremos crear un bloque de Banners Promocionales</description>
+	<version>1.0.0</version>
+	<description>Con este módulo podremos crear un bloque de Banners Promocionales (v. 1.0.0)</description>
 
 	<customContent />
 
 	<files>
 		<filename module="mod_orpromos">mod_orpromos.php</filename>
+		<filename module="mod_orpromos">class_orPromoBanner.php</filename>
 		<folder>tmpl</folder>
 	</files>
 	<languages>
