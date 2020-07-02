@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.9.18" client="site" method="upgrade">
+	<name>mod_orpromos</name>
+	<author>open ROOM</author>
+	<creationDate>Julio 2020</creationDate>
+	<authorEmail>jaume.calafat@open-room.com</authorEmail>
+	<authorUrl>https://www.open-room.com</authorUrl>
+	<copyright>Copyright© 2019-2020</copyright>
+	<license>GNU/GPL</license>
+	<version>0.1.0</version>
+	<description>Con este módulo podremos crear un bloque de Banners Promocionales</description>
+
+	<customContent />
+
+	<files>
+		<filename module="mod_orpromos">mod_orpromos.php</filename>
+		<folder>tmpl</folder>
+	</files>
+	<languages>
+		<language tag="es-ES">es-ES.mod_orpromos.ini</language>
+		<language tag="es-ES">es-ES.mod_orpromos.sys.ini</language>
+		<language tag="en-GB">en-GB.mod_orpromos.ini</language>
+		<language tag="en-GB">en-GB.mod_orpromos.sys.ini</language>
+	</languages>
+
+	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_CUSTOM_HTML" />
+	<config>
+		<fields name="params">
+			
+			<fieldset name="options" label="COM_MODULES_BASIC_FIELDSET_LABEL">
+				<field
+					name="prepare_content"
+					type="radio"
+					label="MOD_ORPROMOS_FIELD_PREPARE_CONTENT_LABEL"
+					description="MOD_ORPROMOS_FIELD_PREPARE_CONTENT_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+			</fieldset>
+			
+			<fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+				/>
+				<field
+					name="moduleclass_sfx"
+					type="textarea"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+					rows="3"
+				/>
+
+				<field
+					name="cache"
+					type="list"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="number"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC"
+					default="900"
+					filter="integer"
+				/>
+
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static"
+					>
+					<option value="static"></option>
+				</field>
+				
+			</fieldset>
+			
+			
+			
+			<fieldset name="banner_1" label="MOD_ORPROMOS_FIELD_BANNER_1">
+				<field
+					name="b1_activar"
+					type="radio"
+					label="MOD_ORPROMOS_FIELD_ACTIVARBANNER_LABEL"
+					description="MOD_ORPROMOS_FIELD_ACTIVARBANNER_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="b1_order"
+					type="radio"
+					label="MOD_ORPROMOS_FIELD_BANNERORDER_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERORDER_DESC"
+					class="btn-group"
+					default="0"
+					filter="integer"
+					>
+					<option value="0">1</option>
+					<option value="1">2</option>
+					<option value="2">3</option>
+					<option value="3">4</option>
+					<option value="4">5</option>
+					<option value="5">6</option>
+					<option value="6">7</option>
+					<option value="7">8</option>
+				</field>
+				<field 
+					name="b1_timein"
+					type="calendar"
+					default=""
+					label="MOD_ORPROMOS_FIELD_TIMERIN_LABEL"
+					description="MOD_ORPROMOS_FIELD_TIMERIN_DESC"
+					required="false"
+					filter="user_utc"
+					format="%Y-%m-%d %H:%M:%S"
+					singleheader="true"
+					showtime="true"
+					timeformat="24"
+					todaybutton="true"
+					filltable="true"
+					minyear="-1"
+					maxyear="5" 
+				/>
+				<field 
+					name="b1_timeout"
+					type="calendar"
+					default=""
+					label="MOD_ORPROMOS_FIELD_TIMEROUT_LABEL"
+					description="MOD_ORPROMOS_FIELD_TIMEROUT_DESC"
+					required="false"
+					filter="user_utc"
+					format="%Y-%m-%d %H:%M:%S"
+					singleheader="true"
+					showtime="true"
+					timeformat="24"
+					todaybutton="true"
+					filltable="true"
+					minyear="-1"
+					maxyear="5" 
+				/>
+				<field
+					name="b1_image"
+					type="media"
+					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+				/>
+				<field
+					name="b1_content"
+					type="editor"
+					label="MOD_ORPROMOS_FIELD_BANNERCONTENT_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERCONTENT_DESC"
+					width="300"
+					filter="safehtml" 
+				/>
+			</fieldset>
+			
+			<fieldset name="banner_2" label="MOD_ORPROMOS_FIELD_BANNER_2">
+				<field
+					name="b2_activar"
+					type="radio"
+					label="MOD_ORPROMOS_FIELD_ACTIVARBANNER_LABEL"
+					description="MOD_ORPROMOS_FIELD_ACTIVARBANNER_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="b2_order"
+					type="radio"
+					label="MOD_ORPROMOS_FIELD_BANNERORDER_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERORDER_DESC"
+					class="btn-group"
+					default="1"
+					filter="integer"
+					>
+					<option value="0">1</option>
+					<option value="1">2</option>
+					<option value="2">3</option>
+					<option value="3">4</option>
+					<option value="4">5</option>
+					<option value="5">6</option>
+					<option value="6">7</option>
+					<option value="7">8</option>
+				</field>
+				<field 
+					name="b2_timein"
+					type="calendar"
+					default=""
+					label="MOD_ORPROMOS_FIELD_TIMERIN_LABEL"
+					description="MOD_ORPROMOS_FIELD_TIMERIN_DESC"
+					required="false"
+					filter="user_utc"
+					format="%Y-%m-%d %H:%M:%S"
+					singleheader="true"
+					showtime="true"
+					timeformat="24"
+					todaybutton="true"
+					filltable="true"
+					minyear="-1"
+					maxyear="5" 
+				/>
+				<field 
+					name="b2_timeout"
+					type="calendar"
+					default=""
+					label="MOD_ORPROMOS_FIELD_TIMEROUT_LABEL"
+					description="MOD_ORPROMOS_FIELD_TIMEROUT_DESC"
+					required="false"
+					filter="user_utc"
+					format="%Y-%m-%d %H:%M:%S"
+					singleheader="true"
+					showtime="true"
+					timeformat="24"
+					todaybutton="true"
+					filltable="true"
+					minyear="-1"
+					maxyear="5" 
+				/>
+				<field
+					name="b2_image"
+					type="media"
+					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+				/>
+				<field
+					name="b2_content"
+					type="editor"
+					label="MOD_ORPROMOS_FIELD_BANNERCONTENT_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERCONTENT_DESC"
+					width="300"
+					filter="safehtml" 
+				/>
+			</fieldset>
+			
+			<fieldset name="banner_3" label="MOD_ORPROMOS_FIELD_BANNER_3">
+				<field
+					name="b3_activar"
+					type="radio"
+					label="MOD_ORPROMOS_FIELD_ACTIVARBANNER_LABEL"
+					description="MOD_ORPROMOS_FIELD_ACTIVARBANNER_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="b3_order"
+					type="radio"
+					label="MOD_ORPROMOS_FIELD_BANNERORDER_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERORDER_DESC"
+					class="btn-group"
+					default="2"
+					filter="integer"
+					>
+					<option value="0">1</option>
+					<option value="1">2</option>
+					<option value="2">3</option>
+					<option value="3">4</option>
+					<option value="4">5</option>
+					<option value="5">6</option>
+					<option value="6">7</option>
+					<option value="7">8</option>
+				</field>
+				<field 
+					name="b3_timein"
+					type="calendar"
+					default=""
+					label="MOD_ORPROMOS_FIELD_TIMERIN_LABEL"
+					description="MOD_ORPROMOS_FIELD_TIMERIN_DESC"
+					required="false"
+					filter="user_utc"
+					format="%Y-%m-%d %H:%M:%S"
+					singleheader="true"
+					showtime="true"
+					timeformat="24"
+					todaybutton="true"
+					filltable="true"
+					minyear="-1"
+					maxyear="5" 
+				/>
+				<field 
+					name="b3_timeout"
+					type="calendar"
+					default=""
+					label="MOD_ORPROMOS_FIELD_TIMEROUT_LABEL"
+					description="MOD_ORPROMOS_FIELD_TIMEROUT_DESC"
+					required="false"
+					filter="user_utc"
+					format="%Y-%m-%d %H:%M:%S"
+					singleheader="true"
+					showtime="true"
+					timeformat="24"
+					todaybutton="true"
+					filltable="true"
+					minyear="-1"
+					maxyear="5" 
+				/>
+				<field
+					name="b3_image"
+					type="media"
+					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+				/>
+				<field
+					name="b3_content"
+					type="editor"
+					label="MOD_ORPROMOS_FIELD_BANNERCONTENT_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERCONTENT_DESC"
+					width="300"
+					filter="safehtml" 
+				/>
+			</fieldset>
+			
+			<fieldset name="banner_4" label="MOD_ORPROMOS_FIELD_BANNER_4">
+				<field
+					name="b4_activar"
+					type="radio"
+					label="MOD_ORPROMOS_FIELD_ACTIVARBANNER_LABEL"
+					description="MOD_ORPROMOS_FIELD_ACTIVARBANNER_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="b4_order"
+					type="radio"
+					label="MOD_ORPROMOS_FIELD_BANNERORDER_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERORDER_DESC"
+					class="btn-group"
+					default="3"
+					filter="integer"
+					>
+					<option value="0">1</option>
+					<option value="1">2</option>
+					<option value="2">3</option>
+					<option value="3">4</option>
+					<option value="4">5</option>
+					<option value="5">6</option>
+					<option value="6">7</option>
+					<option value="7">8</option>
+				</field>
+				<field 
+					name="b4_timein"
+					type="calendar"
+					default=""
+					label="MOD_ORPROMOS_FIELD_TIMERIN_LABEL"
+					description="MOD_ORPROMOS_FIELD_TIMERIN_DESC"
+					required="false"
+					filter="user_utc"
+					format="%Y-%m-%d %H:%M:%S"
+					singleheader="true"
+					showtime="true"
+					timeformat="24"
+					todaybutton="true"
+					filltable="true"
+					minyear="-1"
+					maxyear="5" 
+				/>
+				<field 
+					name="b4_timeout"
+					type="calendar"
+					default=""
+					label="MOD_ORPROMOS_FIELD_TIMEROUT_LABEL"
+					description="MOD_ORPROMOS_FIELD_TIMEROUT_DESC"
+					required="false"
+					filter="user_utc"
+					format="%Y-%m-%d %H:%M:%S"
+					singleheader="true"
+					showtime="true"
+					timeformat="24"
+					todaybutton="true"
+					filltable="true"
+					minyear="-1"
+					maxyear="5" 
+				/>
+				<field
+					name="b4_image"
+					type="media"
+					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+				/>
+				<field
+					name="b4_content"
+					type="editor"
+					label="MOD_ORPROMOS_FIELD_BANNERCONTENT_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERCONTENT_DESC"
+					width="300"
+					filter="safehtml" 
+				/>
+			</fieldset>
+			
+			<fieldset name="banner_5" label="MOD_ORPROMOS_FIELD_BANNER_5">
+				<field
+					name="b5_activar"
+					type="radio"
+					label="MOD_ORPROMOS_FIELD_ACTIVARBANNER_LABEL"
+					description="MOD_ORPROMOS_FIELD_ACTIVARBANNER_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="b5_order"
+					type="radio"
+					label="MOD_ORPROMOS_FIELD_BANNERORDER_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERORDER_DESC"
+					class="btn-group"
+					default="4"
+					filter="integer"
+					>
+					<option value="0">1</option>
+					<option value="1">2</option>
+					<option value="2">3</option>
+					<option value="3">4</option>
+					<option value="4">5</option>
+					<option value="5">6</option>
+					<option value="6">7</option>
+					<option value="7">8</option>
+				</field>
+				<field 
+					name="b5_timein"
+					type="calendar"
+					default=""
+					label="MOD_ORPROMOS_FIELD_TIMERIN_LABEL"
+					description="MOD_ORPROMOS_FIELD_TIMERIN_DESC"
+					required="false"
+					filter="user_utc"
+					format="%Y-%m-%d %H:%M:%S"
+					singleheader="true"
+					showtime="true"
+					timeformat="24"
+					todaybutton="true"
+					filltable="true"
+					minyear="-1"
+					maxyear="5" 
+				/>
+				<field 
+					name="b5_timeout"
+					type="calendar"
+					default=""
+					label="MOD_ORPROMOS_FIELD_TIMEROUT_LABEL"
+					description="MOD_ORPROMOS_FIELD_TIMEROUT_DESC"
+					required="false"
+					filter="user_utc"
+					format="%Y-%m-%d %H:%M:%S"
+					singleheader="true"
+					showtime="true"
+					timeformat="24"
+					todaybutton="true"
+					filltable="true"
+					minyear="-1"
+					maxyear="5" 
+				/>
+				<field
+					name="b5_image"
+					type="media"
+					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+				/>
+				<field
+					name="b5_content"
+					type="editor"
+					label="MOD_ORPROMOS_FIELD_BANNERCONTENT_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERCONTENT_DESC"
+					width="300"
+					filter="safehtml" 
+				/>
+			</fieldset>
+			
+			<fieldset name="banner_6" label="MOD_ORPROMOS_FIELD_BANNER_6">
+				<field
+					name="b6_activar"
+					type="radio"
+					label="MOD_ORPROMOS_FIELD_ACTIVARBANNER_LABEL"
+					description="MOD_ORPROMOS_FIELD_ACTIVARBANNER_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="b6_order"
+					type="radio"
+					label="MOD_ORPROMOS_FIELD_BANNERORDER_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERORDER_DESC"
+					class="btn-group"
+					default="5"
+					filter="integer"
+					>
+					<option value="0">1</option>
+					<option value="1">2</option>
+					<option value="2">3</option>
+					<option value="3">4</option>
+					<option value="4">5</option>
+					<option value="5">6</option>
+					<option value="6">7</option>
+					<option value="7">8</option>
+				</field>
+				<field 
+					name="b6_timein"
+					type="calendar"
+					default=""
+					label="MOD_ORPROMOS_FIELD_TIMERIN_LABEL"
+					description="MOD_ORPROMOS_FIELD_TIMERIN_DESC"
+					required="false"
+					filter="user_utc"
+					format="%Y-%m-%d %H:%M:%S"
+					singleheader="true"
+					showtime="true"
+					timeformat="24"
+					todaybutton="true"
+					filltable="true"
+					minyear="-1"
+					maxyear="5" 
+				/>
+				<field 
+					name="b6_timeout"
+					type="calendar"
+					default=""
+					label="MOD_ORPROMOS_FIELD_TIMEROUT_LABEL"
+					description="MOD_ORPROMOS_FIELD_TIMEROUT_DESC"
+					required="false"
+					filter="user_utc"
+					format="%Y-%m-%d %H:%M:%S"
+					singleheader="true"
+					showtime="true"
+					timeformat="24"
+					todaybutton="true"
+					filltable="true"
+					minyear="-1"
+					maxyear="5" 
+				/>
+				<field
+					name="b6_image"
+					type="media"
+					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+				/>
+				<field
+					name="b6_content"
+					type="editor"
+					label="MOD_ORPROMOS_FIELD_BANNERCONTENT_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERCONTENT_DESC"
+					width="300"
+					filter="safehtml" 
+				/>
+			</fieldset>
+			
+			<fieldset name="banner_7" label="MOD_ORPROMOS_FIELD_BANNER_7">
+				<field
+					name="b7_activar"
+					type="radio"
+					label="MOD_ORPROMOS_FIELD_ACTIVARBANNER_LABEL"
+					description="MOD_ORPROMOS_FIELD_ACTIVARBANNER_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="b7_order"
+					type="radio"
+					label="MOD_ORPROMOS_FIELD_BANNERORDER_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERORDER_DESC"
+					class="btn-group"
+					default="6"
+					filter="integer"
+					>
+					<option value="0">1</option>
+					<option value="1">2</option>
+					<option value="2">3</option>
+					<option value="3">4</option>
+					<option value="4">5</option>
+					<option value="5">6</option>
+					<option value="6">7</option>
+					<option value="7">8</option>
+				</field>
+				<field 
+					name="b7_timein"
+					type="calendar"
+					default=""
+					label="MOD_ORPROMOS_FIELD_TIMERIN_LABEL"
+					description="MOD_ORPROMOS_FIELD_TIMERIN_DESC"
+					required="false"
+					filter="user_utc"
+					format="%Y-%m-%d %H:%M:%S"
+					singleheader="true"
+					showtime="true"
+					timeformat="24"
+					todaybutton="true"
+					filltable="true"
+					minyear="-1"
+					maxyear="5" 
+				/>
+				<field 
+					name="b7_timeout"
+					type="calendar"
+					default=""
+					label="MOD_ORPROMOS_FIELD_TIMEROUT_LABEL"
+					description="MOD_ORPROMOS_FIELD_TIMEROUT_DESC"
+					required="false"
+					filter="user_utc"
+					format="%Y-%m-%d %H:%M:%S"
+					singleheader="true"
+					showtime="true"
+					timeformat="24"
+					todaybutton="true"
+					filltable="true"
+					minyear="-1"
+					maxyear="5" 
+				/>
+				<field
+					name="b7_image"
+					type="media"
+					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+				/>
+				<field
+					name="b7_content"
+					type="editor"
+					label="MOD_ORPROMOS_FIELD_BANNERCONTENT_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERCONTENT_DESC"
+					width="300"
+					filter="safehtml" 
+				/>
+			</fieldset>
+			
+			<fieldset name="banner_8" label="MOD_ORPROMOS_FIELD_BANNER_8">
+				<field
+					name="b8_activar"
+					type="radio"
+					label="MOD_ORPROMOS_FIELD_ACTIVARBANNER_LABEL"
+					description="MOD_ORPROMOS_FIELD_ACTIVARBANNER_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="b8_order"
+					type="radio"
+					label="MOD_ORPROMOS_FIELD_BANNERORDER_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERORDER_DESC"
+					class="btn-group"
+					default="7"
+					filter="integer"
+					>
+					<option value="0">1</option>
+					<option value="1">2</option>
+					<option value="2">3</option>
+					<option value="3">4</option>
+					<option value="4">5</option>
+					<option value="5">6</option>
+					<option value="6">7</option>
+					<option value="7">8</option>
+				</field>
+				<field 
+					name="b8_timein"
+					type="calendar"
+					default=""
+					label="MOD_ORPROMOS_FIELD_TIMERIN_LABEL"
+					description="MOD_ORPROMOS_FIELD_TIMERIN_DESC"
+					required="false"
+					filter="user_utc"
+					format="%Y-%m-%d %H:%M:%S"
+					singleheader="true"
+					showtime="true"
+					timeformat="24"
+					todaybutton="true"
+					filltable="true"
+					minyear="-1"
+					maxyear="5" 
+				/>
+				<field 
+					name="b8_timeout"
+					type="calendar"
+					default=""
+					label="MOD_ORPROMOS_FIELD_TIMEROUT_LABEL"
+					description="MOD_ORPROMOS_FIELD_TIMEROUT_DESC"
+					required="false"
+					filter="user_utc"
+					format="%Y-%m-%d %H:%M:%S"
+					singleheader="true"
+					showtime="true"
+					timeformat="24"
+					todaybutton="true"
+					filltable="true"
+					minyear="-1"
+					maxyear="5" 
+				/>
+				<field
+					name="b8_image"
+					type="media"
+					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+				/>
+				<field
+					name="b8_content"
+					type="editor"
+					label="MOD_ORPROMOS_FIELD_BANNERCONTENT_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERCONTENT_DESC"
+					width="300"
+					filter="safehtml" 
+				/>
+			</fieldset>
+
+		</fields>
+	</config>
+  <updateservers>
+    <server type="module" name="Banners Promocionales OR Template">https://webprojects.open-room.com/updates/mod_orpromos/updates.xml</server>
+  </updateservers>
+</extension>
