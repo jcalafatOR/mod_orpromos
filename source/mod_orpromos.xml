@@ -7,13 +7,14 @@
 	<authorUrl>https://www.open-room.com</authorUrl>
 	<copyright>Copyright© 2019-2020</copyright>
 	<license>GNU/GPL</license>
-	<version>0.1.0</version>
-	<description>Con este módulo podremos crear un bloque de Banners Promocionales</description>
+	<version>1.0.0</version>
+	<description>Con este módulo podremos crear un bloque de Banners Promocionales (v. 1.0.0)</description>
 
 	<customContent />
 
 	<files>
 		<filename module="mod_orpromos">mod_orpromos.php</filename>
+		<filename module="mod_orpromos">class_orPromoBanner.php</filename>
 		<folder>tmpl</folder>
 	</files>
 	<languages>
@@ -158,8 +159,8 @@
 				<field
 					name="b1_image"
 					type="media"
-					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
-					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+					label="MOD_ORPROMOS_FIELD_BANNERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERIMAGE_DESC"
 				/>
 				<field
 					name="b1_content"
@@ -239,8 +240,8 @@
 				<field
 					name="b2_image"
 					type="media"
-					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
-					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+					label="MOD_ORPROMOS_FIELD_BANNERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERIMAGE_DESC"
 				/>
 				<field
 					name="b2_content"
@@ -320,8 +321,8 @@
 				<field
 					name="b3_image"
 					type="media"
-					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
-					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+					label="MOD_ORPROMOS_FIELD_BANNERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERIMAGE_DESC"
 				/>
 				<field
 					name="b3_content"
@@ -401,8 +402,8 @@
 				<field
 					name="b4_image"
 					type="media"
-					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
-					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+					label="MOD_ORPROMOS_FIELD_BANNERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERIMAGE_DESC"
 				/>
 				<field
 					name="b4_content"
@@ -482,8 +483,8 @@
 				<field
 					name="b5_image"
 					type="media"
-					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
-					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+					label="MOD_ORPROMOS_FIELD_BANNERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERIMAGE_DESC"
 				/>
 				<field
 					name="b5_content"
@@ -563,8 +564,8 @@
 				<field
 					name="b6_image"
 					type="media"
-					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
-					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+					label="MOD_ORPROMOS_FIELD_BANNERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERIMAGE_DESC"
 				/>
 				<field
 					name="b6_content"
@@ -644,8 +645,8 @@
 				<field
 					name="b7_image"
 					type="media"
-					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
-					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+					label="MOD_ORPROMOS_FIELD_BANNERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERIMAGE_DESC"
 				/>
 				<field
 					name="b7_content"
@@ -725,8 +726,8 @@
 				<field
 					name="b8_image"
 					type="media"
-					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
-					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+					label="MOD_ORPROMOS_FIELD_BANNERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERIMAGE_DESC"
 				/>
 				<field
 					name="b8_content"
