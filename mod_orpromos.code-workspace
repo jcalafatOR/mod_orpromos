@@ -4,5 +4,7 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"firefox.executable": "C:\\Program Files\\Mozilla Firefox\\firefox.exe"
+	}
 }
