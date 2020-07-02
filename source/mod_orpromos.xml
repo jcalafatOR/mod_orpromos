@@ -158,8 +158,8 @@
 				<field
 					name="b1_image"
 					type="media"
-					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
-					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+					label="MOD_ORPROMOS_FIELD_BANNERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERIMAGE_DESC"
 				/>
 				<field
 					name="b1_content"
@@ -239,8 +239,8 @@
 				<field
 					name="b2_image"
 					type="media"
-					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
-					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+					label="MOD_ORPROMOS_FIELD_BANNERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERIMAGE_DESC"
 				/>
 				<field
 					name="b2_content"
@@ -320,8 +320,8 @@
 				<field
 					name="b3_image"
 					type="media"
-					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
-					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+					label="MOD_ORPROMOS_FIELD_BANNERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERIMAGE_DESC"
 				/>
 				<field
 					name="b3_content"
@@ -401,8 +401,8 @@
 				<field
 					name="b4_image"
 					type="media"
-					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
-					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+					label="MOD_ORPROMOS_FIELD_BANNERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERIMAGE_DESC"
 				/>
 				<field
 					name="b4_content"
@@ -482,8 +482,8 @@
 				<field
 					name="b5_image"
 					type="media"
-					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
-					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+					label="MOD_ORPROMOS_FIELD_BANNERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERIMAGE_DESC"
 				/>
 				<field
 					name="b5_content"
@@ -563,8 +563,8 @@
 				<field
 					name="b6_image"
 					type="media"
-					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
-					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+					label="MOD_ORPROMOS_FIELD_BANNERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERIMAGE_DESC"
 				/>
 				<field
 					name="b6_content"
@@ -644,8 +644,8 @@
 				<field
 					name="b7_image"
 					type="media"
-					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
-					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+					label="MOD_ORPROMOS_FIELD_BANNERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERIMAGE_DESC"
 				/>
 				<field
 					name="b7_content"
@@ -725,8 +725,8 @@
 				<field
 					name="b8_image"
 					type="media"
-					label="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_LABEL"
-					description="MOD_ORPROMOS_FIELD_SLAIDERIMAGE_DESC"
+					label="MOD_ORPROMOS_FIELD_BANNERIMAGE_LABEL"
+					description="MOD_ORPROMOS_FIELD_BANNERIMAGE_DESC"
 				/>
 				<field
 					name="b8_content"
